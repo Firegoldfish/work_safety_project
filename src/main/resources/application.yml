@@ -14,6 +14,7 @@ spring:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
+    # 做驼峰变量名转下划线变量名
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
