@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  application:
+    #名称 可选
+    name: work_safety_project
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://home.firegoldfish.com:3306/reggie
+      type: com.alibaba.druid.pool.DruidDataSource
+      username: root
+      password: Aa114514
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
