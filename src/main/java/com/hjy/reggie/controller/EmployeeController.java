@@ -55,14 +55,14 @@ public class EmployeeController {
     //新增员工
     @PostMapping
     public R<String> save(HttpServletRequest request,@RequestBody Employee employee) {
-        log.info("新增员工，员工信息{}", employee.toString());
-        //设置初始密码123456，加密存储
+//        log.info("新增员工，员工信息{}", employee.toString());
+//        //设置初始密码123456，加密存储
         employee.setPassword(org.springframework.util.DigestUtils.md5DigestAsHex("123456".getBytes()));
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
-        Long empId=(Long) request.getSession().getAttribute("employee");
-        employee.setCreateUser(empId);
-        employee.setUpdateUser(empId);
+//        employee.setCreateTime(LocalDateTime.now());
+//        employee.setUpdateTime(LocalDateTime.now());
+//        Long empId=(Long) request.getSession().getAttribute("employee");
+//        employee.setCreateUser(empId);
+//        employee.setUpdateUser(empId);
         employeeService.save(employee);
         return R.success("新增员工成功！！！");
     }
