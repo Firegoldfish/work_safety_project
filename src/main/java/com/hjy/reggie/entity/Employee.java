@@ -1,4 +1,4 @@
-package com.hjy.reggie.eneity;
+package com.hjy.reggie.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

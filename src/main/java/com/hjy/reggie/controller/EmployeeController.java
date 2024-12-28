@@ -4,7 +4,7 @@ package com.hjy.reggie.controller;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hjy.reggie.common.R;
-import com.hjy.reggie.eneity.Employee;
+import com.hjy.reggie.entity.Employee;
 import com.hjy.reggie.service.EmployeeService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
