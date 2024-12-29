@@ -9,6 +9,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/category")
 @Slf4j
@@ -29,5 +31,11 @@ public class CategoryController {
         wrapper.orderByDesc(Category::getSort);
         categoryService.page(pageInfo, wrapper);
         return R.success(pageInfo);
+    }
+    @DeleteMapping
+    public R<String> delete(Long ids) {
+        log.info("删除id={}", ids);
+        categoryService.removeById(ids);
+        return R.success("删除成功");
     }
 }
