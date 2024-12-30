@@ -13,8 +13,8 @@ import java.sql.SQLIntegrityConstraintViolationException;
 @ControllerAdvice(annotations = {RestController.class, Controller.class})
 @ResponseBody
 @Slf4j
-public class globalExceptionHandler {
-    @ExceptionHandler(SQLIntegrityConstraintViolationException.class) //异常处理方法
+public class GlobalExceptionHandler {
+    @ExceptionHandler(SQLIntegrityConstraintViolationException.class) //全局异常处理方法
     public R<String> exceptionHandler(SQLIntegrityConstraintViolationException exception){
         log.error(exception.getMessage());
         if(exception.getMessage().contains("Duplicate entry")){
@@ -23,5 +23,10 @@ public class globalExceptionHandler {
             return R.error(msg);
         }
         return R.error("添加失败,未知错误");
+    }
+    @ExceptionHandler(CustomException.class) //自己的异常处理方法
+    public R<String> exceptionHandler(CustomException exception){
+        log.error(exception.getMessage());
+        return R.error(exception.getMessage());
     }
 }
