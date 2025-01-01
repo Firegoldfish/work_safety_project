@@ -35,6 +35,6 @@ public class CommonController {
         catch(Exception e){
             e.printStackTrace();
         }
-        return null;
+        return R.success(uuid);
     }
 }
