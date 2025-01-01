@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/common")
@@ -21,9 +22,15 @@ public class CommonController {
     @PostMapping("/upload")
     public R<String> upload(MultipartFile file) {
         log.info(file.toString());
-        String originalFilename = file.getOriginalFilename();
+        String originalFilename = file.getOriginalFilename();   //文件原名
+        String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
+        String uuid = UUID.randomUUID().toString()+suffix; //新文件名
+        File dir = new File(basePath);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
         try{
-            file.transferTo(new File(basePath+ originalFilename));
+            file.transferTo(new File(basePath+ uuid));  //存到指定位置
         }
         catch(Exception e){
             e.printStackTrace();
