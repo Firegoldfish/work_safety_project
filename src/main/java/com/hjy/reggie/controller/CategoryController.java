@@ -45,4 +45,12 @@ public class CategoryController {
         categoryService.updateById(category);
         return R.success("修改分类信息成功");
     }
+    @GetMapping("/list")
+    public R<List<Category>> list(Category category) {
+        LambdaQueryWrapper<Category> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(category.getType()!=null,Category::getType,category.getType());
+        wrapper.orderByAsc(Category::getSort).orderByDesc(Category::getUpdateTime);
+        List<Category> list = categoryService.list(wrapper);
+        return R.success(list);
+    }
 }
