@@ -2,7 +2,7 @@ package com.hjy.reggie.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.hjy.reggie.entity.Dish;
-import dto.DishDto;
+import com.hjy.reggie.dto.DishDto;
 import org.springframework.stereotype.Service;
 
 @Service

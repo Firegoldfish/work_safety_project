@@ -6,7 +6,7 @@ import com.hjy.reggie.entity.DishFlavor;
 import com.hjy.reggie.mapper.DishMapper;
 import com.hjy.reggie.service.DishFlavorService;
 import com.hjy.reggie.service.DishService;
-import dto.DishDto;
+import com.hjy.reggie.dto.DishDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

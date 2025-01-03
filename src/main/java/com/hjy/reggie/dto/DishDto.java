@@ -1,4 +1,4 @@
-package dto;
+package com.hjy.reggie.dto;
 
 
 import com.hjy.reggie.entity.Dish;

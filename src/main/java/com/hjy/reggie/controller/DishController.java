@@ -3,7 +3,7 @@ package com.hjy.reggie.controller;
 import com.hjy.reggie.common.R;
 import com.hjy.reggie.service.DishFlavorService;
 import com.hjy.reggie.service.DishService;
-import dto.DishDto;
+import com.hjy.reggie.dto.DishDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
