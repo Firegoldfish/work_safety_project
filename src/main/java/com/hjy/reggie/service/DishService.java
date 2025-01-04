@@ -9,4 +9,5 @@ import org.springframework.stereotype.Service;
 public interface DishService extends IService<Dish> {
     //新增菜品，口味，对两张表操作
     public void saveWithFlavor(DishDto dishDto);
+    public DishDto getByIdWithFlavor(Long id);
 }
