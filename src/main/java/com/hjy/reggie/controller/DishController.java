@@ -1,6 +1,7 @@
 package com.hjy.reggie.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hjy.reggie.common.R;
 import com.hjy.reggie.entity.Category;
@@ -74,5 +75,32 @@ public class DishController {
     public R<String> update(@RequestBody DishDto dishDto) {
         dishService.updateWithFlavor(dishDto);
         return R.success("修改成功");
+    }
+    @PostMapping("/status/1")
+    public R<String> updateStatusStart(Long ids){
+        Dish dish = dishService.getById(ids);
+        dish.setStatus(1);
+        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Dish::getId, ids);
+        dishService.update(dish, queryWrapper);
+        return R.success("修改成功");
+    }
+    @PostMapping("/status/0")
+    public R<String> updateStatusStop(Long ids){
+        Dish dish = dishService.getById(ids);
+        dish.setStatus(0);
+        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Dish::getId, ids);
+        dishService.update(dish, queryWrapper);
+        return R.success("修改成功");
+    }
+    @DeleteMapping
+    public R<String> deleteDish(Long ids) {
+        Dish dish = dishService.getById(ids);
+        dish.setIsDeleted(1);
+        LambdaQueryWrapper<Dish> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Dish::getId, ids);
+        dishService.update(dish, queryWrapper);
+        return R.success("删除成功");
     }
 }
