@@ -201,7 +201,8 @@
           deleteHandle (type, id) {
             if (type === '批量' && id === null) {
               if (this.checkList.length === 0) {
-                return this.$message.error('请选择删除对象')
+                return this.$message.error('请选择' +
+                        '删除对象')
               }
             }
             this.$confirm('确认删除该菜品, 是否继续?', '确定删除', {
