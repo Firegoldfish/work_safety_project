@@ -26,10 +26,11 @@ public class SetmealController {
     @Autowired
     private DishService dishService;
 
-    @PutMapping
+    //新增套餐
+    @PostMapping
     public R<String> save(@RequestBody SetmealDto setmealDto) {
         log.info(setmealDto.toString());
-        // SetmealDishService.saveWithDish(setmealDto);
+        setmealService.saveWithDish(setmealDto);
         return R.success("新增套餐成功");
     }
 }
