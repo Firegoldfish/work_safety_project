@@ -78,4 +78,28 @@ public class SetmealController {
         dtoPage.setRecords(list);
         return R.success(dtoPage);
     }
+    @PostMapping("/status/1")
+    public R<String> updateStatusStart(Long ids){
+        Setmeal setmeal = setmealService.getById(ids);
+        setmeal.setStatus(1);
+        LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Setmeal::getId, ids);
+        setmealService.update(setmeal, queryWrapper);
+        return R.success("修改成功");
+    }
+    @PostMapping("/status/0")
+    public R<String> updateStatusStop(Long ids){
+        Setmeal setmeal = setmealService.getById(ids);
+        setmeal.setStatus(0);
+        LambdaQueryWrapper<Setmeal> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Setmeal::getId, ids);
+        setmealService.update(setmeal, queryWrapper);
+        return R.success("修改成功");
+    }
+    @DeleteMapping
+    public R<String> deleteSetmeal(@RequestParam List<Long> ids){
+        log.info("将要删除的套餐id{}",ids);
+        setmealService.removeWithDish(ids);
+        return R.success("套餐删除成功");
+    }
 }
